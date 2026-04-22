@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47188917f146313409c57b7676ed3d16, type: 3}
+  m_Name: PlasticTrash
+  m_EditorClassIdentifier: 
+  typeName: Plastic
+  isBomb: 0
+  playerColor: {r: 0.6612564, g: 1, b: 0.6556604, a: 1}
+  tintTrash: 1
+  sprites:
+  - {fileID: 21300000, guid: 0cb0a978411658143b0e1351a7eb5f1e, type: 3}
+  - {fileID: 21300000, guid: 5c72c753f4043a14fb1c0d9b1f585f7c, type: 3}
+  - {fileID: 21300000, guid: 2e7ff49a22722464eb573fe159d3ee2d, type: 3}
+  - {fileID: 21300000, guid: 7cb6617329efd3b46b58345093312e65, type: 3}

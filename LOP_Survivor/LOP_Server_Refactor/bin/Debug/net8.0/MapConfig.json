@@ -1,0 +1,11 @@
+{
+  "Seed": 1234,
+  "MapRadius": 10,
+  "NoiseScale": 30,
+  "SurfaceNoiseScale": 0.1,
+  "MaxWaterHeight": 7,
+  "MaxStoneHeight": 7,
+  "ChunkWidth": 10,
+  "ChunkHeight": 25,
+  "ChunkLength": 10
+}

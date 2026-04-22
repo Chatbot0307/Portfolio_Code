@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "qZI9ME1yocw=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hwang\\OneDrive\\Documents\\GitHub\\lop-survivor-renewal(newip)\\Server_Project\\LOP_Server\\LOP_Server.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hwang\\.nuget\\packages\\google.protobuf\\3.32.0\\google.protobuf.3.32.0.nupkg.sha512"
+  ],
+  "logs": []
+}

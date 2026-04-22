@@ -1,0 +1,144 @@
+﻿syntax = "proto3";
+package GameSync;
+
+message ProtoRot
+{
+    float Qx = 1;
+    float Qy = 2;
+    float Qz = 3;
+    float Qw = 4;
+}
+
+message ProtoPos
+{
+    float x = 1;
+    float y = 2;
+    float z = 3;
+}
+
+message GameMessage 
+{
+    string playerId = 1;
+    int64 timestamp = 2;
+
+    oneof payload 
+    {
+        Join join = 3;
+        Leave leave = 4;
+        PositionSync position = 5;
+        AnimationState animState = 6;
+        AnimationTrigger animTrigger = 7;
+        ItemEquip itemEquip = 8;
+        
+        RPC rpc = 9;
+        ChatMessage chatMessage = 10;
+        NetworkInstantiate networkInstantiate = 11; 
+        NetworkObjectList networkObjectList = 12;
+        MapBlockUpdate mapBlockUpdate = 13;
+        BlockDestroyFlag blockDestroyFlag = 14;
+        ObjectDestroyMessage objectDestroyMessage = 15;
+        TickSync tickSync = 16;
+        AssignWorldSpawner assignWorldSpawner = 17;
+        TransferOwnership transferOwnership = 18;
+    }
+}
+
+message Join 
+{
+    optional bool isWorldSpawner = 1;
+    int32 networkId = 2;
+    string nickname = 3;
+}
+
+message Leave {}
+
+message PositionSync 
+{
+    int32 network_id = 1;
+    ProtoPos position = 2;
+    ProtoRot rotation = 3;
+    int32 sequence = 4;
+}
+
+message AnimationState 
+{
+    int32 network_id = 1;
+    map<int32, bool> states = 2;
+}
+
+message AnimationTrigger 
+{
+    int32 network_id = 1;
+    repeated int32 triggers = 2;
+}
+
+message ItemEquip 
+{
+    int32 itemId = 1;
+}
+
+message RPC 
+{
+    int32 networkId = 1;
+    int32 methodHash = 2;
+    bytes parameters = 3;
+}
+
+message ChatMessage 
+{
+    string message = 1;
+}
+
+message NetworkInstantiate 
+{
+    int32 networkId = 1;        
+    int32 prefabHash = 2;       
+    ProtoPos position = 3;      
+    ProtoRot rotation = 4;      
+    optional string ownerPlayerId = 5; 
+    
+    optional string dropItemId = 6;
+    optional int32 dropItemCount = 7;
+    optional int32 predictionKey = 8;
+}
+
+message NetworkObjectList 
+{
+    repeated NetworkInstantiate objects = 1;
+}
+
+message MapBlockUpdate 
+{
+    int32 x = 1;
+    int32 y = 2;
+    int32 z = 3;
+    string newBlockId = 4;
+    optional int32 newLevel = 5;
+}
+
+message BlockDestroyFlag 
+{
+    int32 x = 1;
+    int32 y = 2;
+    int32 z = 3;
+    
+    bool is_destroyed = 4;
+}
+
+message ObjectDestroyMessage 
+{
+    int32 networkId = 1; 
+}
+
+message TickSync 
+{
+    float elapsedTicks = 1;
+}
+
+message AssignWorldSpawner {}
+
+message TransferOwnership 
+{
+    int32 networkId = 1;
+    string newOwnerPlayerId = 2;
+}
